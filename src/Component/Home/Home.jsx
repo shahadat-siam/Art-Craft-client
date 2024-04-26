@@ -1,8 +1,10 @@
+import CraftItem from "./Craftsection/CraftItem";
+
  
 const Home = () => {
     return (
         <div>
-            <h2 className="text-3xl font-bold text-center">Htis is home </h2>
+            <CraftItem/>
         </div>
     );
 };
