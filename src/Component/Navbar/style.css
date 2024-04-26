@@ -1,0 +1,11 @@
+/* li {
+    border: 1px solid purple ;
+    color: purple;
+    background: transparent  ;
+    border-radius: 5px;
+} */
+li a.active {
+    background: #007f722c !important ; 
+    color: #007F73 !important; 
+    
+}
