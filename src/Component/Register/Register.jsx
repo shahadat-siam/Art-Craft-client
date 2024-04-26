@@ -4,6 +4,7 @@ import UseAuth from "../Hook/UseAuth";
 import { useState } from "react";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx"; 
 import swal from "sweetalert";
+import SocialLogin from "../Login/SocialLogin";
 
  
 const Register = () => {
@@ -51,20 +52,20 @@ const Register = () => {
 
     return (
         <div className="mt-6 "> 
-            <div className="w-96 mx-auto bg-purple-50 border  border-gray-300  p-6 rounded  ">
+            <div className="w-80 mx-auto bg-purple-50 border  border-gray-300  p-6 rounded  ">
                 <form  onSubmit={handleSubmit(onSubmit)} className="flex flex-col items-start  ">
                     <label htmlFor="name" className="font-semibold mt-2">Name:</label>
-                    <input type="text"  className="w-full p-1 pl-3 rounded-[4px]" name="name" placeholder="enter your name" {...register("FullName", { required: true })} />
+                    <input type="text"  className="w-full outline-none p-1 pl-3 rounded-[4px]" name="name" placeholder="enter your name" {...register("FullName", { required: true })} />
                     {errors.FullName && <span className="text-red-500">This field is required</span>}
                     <label htmlFor="email" className="font-semibold mt-2">Email:</label>
-                    <input type="email" className="w-full p-1 pl-3 rounded-[4px]" name="email" placeholder="enter your email" {...register("email", { required: true })} />
+                    <input type="email" className="w-full outline-none p-1 pl-3 rounded-[4px]" name="email" placeholder="enter your email" {...register("email", { required: true })} />
                     {errors.email && <span className="text-red-500">This field is required</span>}
                     <label htmlFor="photo" className="font-semibold mt-2">Photo Url:</label>
-                    <input type="url" className="w-full p-1 pl-3 rounded-[4px]" name="photo" placeholder="enter your photo url" {...register("image", { required: true })}  />
+                    <input type="url" className="w-full outline-none p-1 pl-3 rounded-[4px]" name="photo" placeholder="enter your photo url" {...register("image", { required: true })}  />
                     {errors.image && <span className="text-red-500">This field is required</span>}
                      <div className="w-full flex flex-col items-start relative mt-2"> 
                         <label htmlFor="password" className="font-semibold ">Password:</label>
-                        <input type={showPassword ? "text" : "password"} className="w-full p-1 pl-3 rounded-[4px]" name="password" placeholder="enter your password" {...register("password", { required: true })} />
+                        <input type={showPassword ? "text" : "password"} className="w-full outline-none p-1 pl-3 rounded-[4px]" name="password" placeholder="enter your password" {...register("password", { required: true })} />
                         <span onClick={() => setShowPassword(!showPassword)} className=" absolute right-5 bottom-2  cursor-pointer">
                             {
                             showPassword ? <RxEyeOpen/> : <RxEyeClosed/> 
@@ -76,9 +77,19 @@ const Register = () => {
                 </form>
                 {
                     error && <p className="text-red-500">{error}</p>
-                }
-                <p className="mt-1">Already have an account? <NavLink to='/login'> <span className="text-primary underline cursor-pointer">Log in.</span></NavLink></p> 
+                } 
+                <div className="flex flex-col mt-3 w-full"> 
+                    <div className="divider">OR</div> 
+                </div> 
+
+                <div>
+                    <SocialLogin/>
+                </div>
             </div>
+
+            <div className="rounded-sm p-4 border border-gray-200 w-80 mx-auto bg-purple-50 mt-2">
+                <p className="text-center">Already have an account? <NavLink to='/login'> <span className="text-primary underline cursor-pointer">Log in.</span></NavLink></p> 
+            </div> 
         </div>
     );
 };

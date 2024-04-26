@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,20 +9,36 @@ export const AuthContext = createContext(null);
  
 const AuthProvider = ({children}) => { 
 
+  const googleProvider = new GoogleAuthProvider()
+  const githubProvider = new GithubAuthProvider();
   const [user, setUser] = useState(null)
     console.log(user)
-     // create user
-     const createUser = (email, password) => { 
-      console.log(email, password)
+
+      // create user
+      const createUser = (email, password) => { 
+        console.log(email, password)
         // setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
       }
 
-     //----- Log in -----
-     const LogInUser = (email, password) => {
+      //----- Log in -----
+      const LogInUser = (email, password) => {
         // setLoading(true)
         return  signInWithEmailAndPassword(auth, email, password)
       }  
+
+      // ------- google login ------ 
+      const googleLogin = () => {
+        // setLoading(true)
+        return signInWithPopup(auth, googleProvider)
+      }
+
+      //----github login -----
+      const githubLogin = () => {
+        // setLoading(true)
+        return signInWithPopup(auth, githubProvider)
+      }
+ 
 
       //------ log out-----
       const logOutUser = () => {
@@ -49,6 +65,8 @@ const AuthProvider = ({children}) => {
         createUser,   
         LogInUser, 
         logOutUser, 
+        googleLogin,
+        githubLogin,
     }  
     return (
         <AuthContext.Provider value={values}>
