@@ -88,7 +88,7 @@ const Register = () => {
             </div>
 
             <div className="rounded-sm p-4 border border-gray-200 w-80 mx-auto bg-purple-50 mt-2">
-                <p className="text-center">Already have an account? <NavLink to='/login'> <span className="text-primary underline cursor-pointer">Log in.</span></NavLink></p> 
+                <p className="text-center">Already have an account? <NavLink to='/login'> <span className="text-[#0E46A3] underline cursor-pointer">Log in.</span></NavLink></p> 
             </div> 
         </div>
     );
