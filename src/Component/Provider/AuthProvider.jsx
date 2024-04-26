@@ -1,6 +1,8 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 
 
 export const AuthContext = createContext(null); 
@@ -22,6 +24,16 @@ const AuthProvider = ({children}) => {
         return  signInWithEmailAndPassword(auth, email, password)
       }  
 
+      //------ log out-----
+      const logOutUser = () => {
+        setUser(null) 
+        signOut(auth)
+        .then(() => {
+          toast.success("successfully logout!")
+        }).catch((error) => {
+          console.log(error)
+        });
+      }
 
       useEffect(() => {
         const unsubscribe =  onAuthStateChanged(auth, (user) => {
@@ -33,8 +45,10 @@ const AuthProvider = ({children}) => {
       },[])
 
       const values = {
+        user,
         createUser,   
-        LogInUser,  
+        LogInUser, 
+        logOutUser, 
     }  
     return (
         <AuthContext.Provider value={values}>

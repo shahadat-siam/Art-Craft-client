@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
-import './style.css';
+import "./style.css";
+import UseAuth from "../Hook/UseAuth";
 
 const Navbar = () => {
+  const { user, logOutUser } = UseAuth();
+
   return (
     <div className="navbar lg:px-10 bg-purple-200">
       <div className="navbar-start">
@@ -48,7 +51,9 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="font-bold text-4xl bg-gradient-to-r from-[#007F73] via-[#126e65a8] to-[#007f72d2] inline-block text-transparent bg-clip-text">Artistry </a>
+        <a className="font-bold text-4xl bg-gradient-to-r from-[#007F73] via-[#126e65a8] to-[#007f72d2] inline-block text-transparent bg-clip-text">
+          Artistry{" "}
+        </a>
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal space-x-2">
@@ -75,18 +80,47 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <div className="space-x-2">
-          <NavLink to="/login">
-            <a className="lg:px-5 px-3 py-2 rounded cursor-pointer  bg-[#0E46A3] hover:bg-[#203a64] text-white font-bold">
-              Log in
-            </a>
-          </NavLink>
-          <NavLink to="/register">
-            <a className="lg:px-5 px-3 py-2 rounded cursor-pointer  bg-[#D20062] hover:bg-[#D200A6] text-white font-bold">
-              Register
-            </a>
-          </NavLink>
-        </div>
+        {user ? (
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  title={`${user.displayName}`}
+                  src={
+                    user?.photoURL ||
+                    "https://i.ibb.co/31H6Z4N/alex-suprun-ZHv-M3-XIOHo-E-unsplash.jpg"
+                  }
+                />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <button className="btn btn-sm  btn-ghost">
+                  {user?.displayName || "user name not found"}
+                </button>
+              </li>
+              <li>
+                <button onClick={logOutUser} className="btn btn-sm  btn-ghost">Logout</button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="space-x-2">
+            <NavLink to="/login">
+              <a className="lg:px-5 px-3 py-2 rounded cursor-pointer  bg-[#0E46A3] hover:bg-[#203a64] text-white font-bold">
+                Log in
+              </a>
+            </NavLink>
+            <NavLink to="/register">
+              <a className="lg:px-5 px-3 py-2 rounded cursor-pointer  bg-[#D20062] hover:bg-[#D200A6] text-white font-bold">
+                Register
+              </a>
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );
