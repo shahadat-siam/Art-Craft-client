@@ -48,7 +48,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="font-bold text-4xl">Artistry </a>
+        <a className="font-bold text-4xl bg-gradient-to-r from-[#007F73] via-[#126e65a8] to-[#007f72d2] inline-block text-transparent bg-clip-text">Artistry </a>
       </div>
       <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal space-x-2">
