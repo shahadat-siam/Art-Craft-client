@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     
     if(loading){
         console.log('loading done')
-        return <span className="loading loading-spinner loading-lg text-warning"></span>
+        return <div className="h-[70vh] w-full flex items-center justify-center"><span className="loading loading-spinner loading-lg text-warning"></span></div>
     }
     if(!user) {
         console.log('user comming soon')

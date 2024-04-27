@@ -1,5 +1,40 @@
+import swal from "sweetalert";
+import Swal from "sweetalert2";
+
 const MylistCard = ({ item }) => {
-  const { name, photo, price, rating, stockStatus, customization } = item;
+  const {_id, name, photo, price, rating, stockStatus, customization } = item;
+
+  const hundleDelete = (id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      }).then((result) => {
+        if (result.isConfirmed) { 
+
+        fetch(`http://localhost:5000/mylist/${_id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.deletedCount > 0){
+                Swal.fire({
+                title: "Deleted!",
+                text: "Your craft has been deleted.",
+                icon: "success"
+                });
+            }
+        })
+        console.log('delete confirmed')
+        }
+      });
+  }
+
   return (
     <div>
       <div className="card border border-gray-200 shadow-md p-0">
@@ -17,7 +52,7 @@ const MylistCard = ({ item }) => {
           </div>
           <div className="card-actions justify-center gap-4 mt-5">
             <button className="px-5 py-2 rounded border border-[#007F73] font-bold text-[#007F73] hover:bg-[#007f7242]">Update</button>
-            <button className="px-5 py-2 rounded border border-[purple] font-bold text-[purple] hover:bg-[#80008027] ">Delete</button>
+            <button onClick={() => hundleDelete(_id)} className="px-5 py-2 rounded border border-[purple] font-bold text-[purple] hover:bg-[#80008027] ">Delete</button>
           </div>
         </div>
       </div>
