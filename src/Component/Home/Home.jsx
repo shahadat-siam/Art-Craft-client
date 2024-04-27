@@ -1,3 +1,4 @@
+import PrivateRoute from "../Routes/PrivateRoute/PrivateRoute";
 import Banner from "./Banner/Banner";
 import CraftItem from "./Craftsection/CraftItem";
 
@@ -5,7 +6,7 @@ import CraftItem from "./Craftsection/CraftItem";
 const Home = () => {
     return (
         <div>
-            <Banner/>
+            <Banner/> 
             {/* <CraftItem/> */}
         </div>
     );

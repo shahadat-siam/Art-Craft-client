@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import UseAuth from "../Hook/UseAuth";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -11,6 +11,11 @@ const Login = () => {
 
     const [error, setError] = useState()
     const [showPassword, setShowPassword] = useState(false)
+     
+    //------ nevigation system------
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
 
     const {LogInUser} = UseAuth()
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -21,6 +26,8 @@ const Login = () => {
         LogInUser(email, password)
         .then(result => {
             console.log(result.user)
+            //---- nnavigate after login
+            navigate(from)
             swal({
                 title: "Great job!",
                 text: "You have successfully logged in",

@@ -2,16 +2,23 @@ import { FaGithub } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import UseAuth from "../Hook/UseAuth";
 import swal from "sweetalert";
+import { useLocation, useNavigate } from "react-router-dom";
 
  
 const SocialLogin = () => {
 
     const {googleLogin, githubLogin} = UseAuth()
 
+    //------ nevigation system------
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state || '/'
+
     const hundleSocialLogin = socialProvider => {
         socialProvider()
         .then(result => {
             console.log(result.user) 
+            navigate(from)
             swal({
                 title: "Great job!",
                 text: "You have successfully logged in",

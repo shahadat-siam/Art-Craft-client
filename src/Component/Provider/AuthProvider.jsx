@@ -11,31 +11,33 @@ const AuthProvider = ({children}) => {
 
   const googleProvider = new GoogleAuthProvider()
   const githubProvider = new GithubAuthProvider();
+
   const [user, setUser] = useState(null)
+  const [loading, setLoading] = useState(true)
     console.log(user)
 
       // create user
       const createUser = (email, password) => { 
         console.log(email, password)
-        // setLoading(true)
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
       }
 
       //----- Log in -----
       const LogInUser = (email, password) => {
-        // setLoading(true)
+        setLoading(true)
         return  signInWithEmailAndPassword(auth, email, password)
       }  
 
       // ------- google login ------ 
       const googleLogin = () => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
       }
 
       //----github login -----
       const githubLogin = () => {
-        // setLoading(true)
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
       }
  
@@ -43,6 +45,7 @@ const AuthProvider = ({children}) => {
       //------ log out-----
       const logOutUser = () => {
         setUser(null) 
+        setLoading(true)
         signOut(auth)
         .then(() => {
           toast.success("successfully logout!")
@@ -55,6 +58,7 @@ const AuthProvider = ({children}) => {
         const unsubscribe =  onAuthStateChanged(auth, (user) => {
               if (user) {
                 setUser(user) 
+                setLoading(false)
               } 
             });
             return () => unsubscribe()
@@ -62,6 +66,7 @@ const AuthProvider = ({children}) => {
 
       const values = {
         user,
+        loading,
         createUser,   
         LogInUser, 
         logOutUser, 

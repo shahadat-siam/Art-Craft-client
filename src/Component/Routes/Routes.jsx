@@ -7,6 +7,7 @@ import AllArtCraft from "../AllCraftArt/AllArtCraft";
 import AddCraft from "../AddCraftItem/AddCraft";
 import MyList from "../MyList/MyList";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
         },
         {
             path: '/mylist',
-            element: <MyList/>
+            element:  <PrivateRoute><MyList/></PrivateRoute>
         }
       ]
     },

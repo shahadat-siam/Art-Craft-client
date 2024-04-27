@@ -9,8 +9,9 @@ const MylistCard = ({ item }) => {
         </figure>
         <div className="card-body">
           <h2 className="card-title font-bold text-[#007F73]">{name}</h2>
+          <p className="flex items-start my-2 text-purple-300">Customization: {customization}</p>
           <div className="flex  justify-between items-center">
-            <span className="flex px-3 py-[6px] rounded-sm font-semibold text-center text-[#ffa500] bg-[#ffa60017] ">price: {price}</span>    
+            <span className="flex px-3 py-[6px] rounded-sm font-semibold text-center text-[#ffa500] bg-[#ffa60017] ">Price: {price}</span>    
             <span className="flex px-3 py-[6px] rounded-sm font-semibold text-center text-[#ffa500] bg-[#ffa60017]">Rating: {rating}</span>
             {/* <span className="flex px-3 py-[6px] rounded-sm font-semibold text-center text-[#ffa500] bg-[#ffa60017] ">customization: {customization}</span> */}
           </div>
