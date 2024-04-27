@@ -1,0 +1,27 @@
+/* .cerosul{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;  
+    position: relative;
+}
+.cerosul .list .item{
+    position: absolute;
+    inset: 0 0 0 0;
+}
+.cerosul .list img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.cerosul .list .item .content{
+    position: absolute;
+    top: 20%;
+    width: 1140px;
+    max-width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30%;
+    box-sizing: border-box;
+    color: #fff;
+    box-shadow: 0 5px 10px #8884;
+} */

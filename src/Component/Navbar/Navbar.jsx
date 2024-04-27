@@ -6,7 +6,7 @@ const Navbar = () => {
   const { user, logOutUser } = UseAuth();
 
   return (
-    <div className="navbar lg:px-10 bg-purple-200">
+    <div className="navbar sticky top-0 z-40 lg:px-10 bg-[transparent] shadow-md">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">

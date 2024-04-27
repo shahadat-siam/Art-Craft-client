@@ -19,10 +19,8 @@ const AddCraft = () => {
         const stockStatus = form.stockStatus.value
         const photo = form.photo.value
         const email = user.email
-        const displayName = user.displayName
+        const displayName = user.displayName  
 
- 
-        // form.reset()
         const newCraft = {name, email,displayName, subcategory, price, rating, customization, description, time, stockStatus, photo}
         console.log(newCraft)
 
@@ -40,10 +38,11 @@ const AddCraft = () => {
             if(data.insertedId){
                 swal({
                     title: "success",
-                    text: "added successfully",
+                    text: "added successfully in database",
                     icon: "success",
                     dangerMode: true,
                   })
+                  form.reset()  
             }
         })
 
@@ -110,7 +109,7 @@ const AddCraft = () => {
             />
           </div>
           <div className="md:w-1/2 mt-2 flex flex-col items-start gap-2">
-            <label className="font-semibold" htmlFor="">Details :</label> 
+            <label className="font-semibold" htmlFor="">Description :</label> 
             <input
               name="description"
               type="text"

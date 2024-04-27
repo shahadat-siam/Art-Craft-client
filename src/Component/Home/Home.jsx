@@ -1,10 +1,12 @@
+import Banner from "./Banner/Banner";
 import CraftItem from "./Craftsection/CraftItem";
 
  
 const Home = () => {
     return (
         <div>
-            <CraftItem/>
+            <Banner/>
+            {/* <CraftItem/> */}
         </div>
     );
 };

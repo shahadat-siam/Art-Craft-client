@@ -9,9 +9,8 @@ const CraftItem = () => {
                     <h2 className="text-3xl font-bold text-[#007F73]">Landscape Painting</h2>
                 </div>
             </div>
-             
-            <img className=" mt-2 w-72 h-60" src="https://i.etsystatic.com/40137072/r/il/90f05f/5665097276/il_600x600.5665097276_eb6j.jpg" alt="" />
-            {/* https://i.etsystatic.com/7725312/r/il/49290d/5167560332/il_794xN.5167560332_lcf6.jpg */}
+              
+            {/* https://i.ibb.co/3hRV3bm/victoria-berman-U-ouht-Pg-HH4-unsplash.jpg */}
         </div>
     );
 };
