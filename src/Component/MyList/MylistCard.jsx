@@ -1,4 +1,4 @@
-import swal from "sweetalert";
+import { Link } from "react-router-dom"; 
 import Swal from "sweetalert2";
 
 const MylistCard = ({ item }) => {
@@ -51,7 +51,7 @@ const MylistCard = ({ item }) => {
             {/* <span className="flex px-3 py-[6px] rounded-sm font-semibold text-center text-[#ffa500] bg-[#ffa60017] ">customization: {customization}</span> */}
           </div>
           <div className="card-actions justify-center gap-4 mt-5">
-            <button className="px-5 py-2 rounded border border-[#007F73] font-bold text-[#007F73] hover:bg-[#007f7242]">Update</button>
+            <Link to={`/update/${_id}`}><button className="px-5 py-2 rounded border border-[#007F73] font-bold text-[#007F73] hover:bg-[#007f7242]">Update</button></Link>
             <button onClick={() => hundleDelete(_id)} className="px-5 py-2 rounded border border-[purple] font-bold text-[purple] hover:bg-[#80008027] ">Delete</button>
           </div>
         </div>

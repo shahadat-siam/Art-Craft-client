@@ -8,6 +8,8 @@ import AddCraft from "../AddCraftItem/AddCraft";
 import MyList from "../MyList/MyList";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import Update from "../MyList/Update/Update";
+import ViewDetails from "../AllCraftArt/ViewDetails";
 
 const router = createBrowserRouter([
     {
@@ -29,15 +31,25 @@ const router = createBrowserRouter([
         },
         {
             path: '/allart',
-            element: <AllArtCraft/>
+            element: <AllArtCraft/> ,
+            loader: () => fetch('http://localhost:5000/addcraft')
         },
         {
             path:'/addcrafti',
-            element: <AddCraft/>
+            element:  <PrivateRoute><AddCraft/></PrivateRoute>
         },
         {
             path: '/mylist',
             element:  <PrivateRoute><MyList/></PrivateRoute>
+        },
+        {
+            path:'/update/:id',
+            element: <PrivateRoute><Update/></PrivateRoute>, 
+            loader:({params}) => fetch(`http://localhost:5000/addcraft/${params.id}`)
+        },
+        {
+            path:'/details',
+            element: <PrivateRoute><ViewDetails/></PrivateRoute>
         }
       ]
     },
