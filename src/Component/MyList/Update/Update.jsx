@@ -1,5 +1,4 @@
-import { useLoaderData } from "react-router-dom"; 
-import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";  
 import UseAuth from "../../Hook/UseAuth";
 import swal from "sweetalert";
 
