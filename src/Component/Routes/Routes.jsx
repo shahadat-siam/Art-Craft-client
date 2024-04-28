@@ -10,6 +10,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Update from "../MyList/Update/Update";
 import ViewDetails from "../AllCraftArt/ViewDetails";
+import CraftItem from "../Home/Craftsection/CraftItem";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
       children: [
         {
             path:'/',
-            element: <Home/>
+            element: <Home/>,
+            loader: () => fetch('http://localhost:5000/default')
         },
         {
             path: '/login',
@@ -50,7 +52,12 @@ const router = createBrowserRouter([
         {
             path:'/details',
             element: <PrivateRoute><ViewDetails/></PrivateRoute>
-        }
+        },
+        // {
+        //     path:'/artcetegory',
+        //     element: <CraftItem/>,
+        //     loader: () => fetch('http://localhost:5000/default')
+        // }
       ]
     },
   ]);

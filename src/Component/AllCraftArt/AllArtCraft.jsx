@@ -4,8 +4,7 @@ import AllCraftCard from "./AllCraftCard";
  
 const AllArtCraft = () => {
     const item = useLoaderData() 
- 
-    console.log(item)
+    console.log(item) 
     return (
         <div>
             <h2 className="text-4xl font-bold my-6 text-center">All Art & craft Items</h2>

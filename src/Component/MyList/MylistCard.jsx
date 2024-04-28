@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"; 
 import Swal from "sweetalert2";
 
-const MylistCard = ({ item }) => {
-  const {_id, name, photo, price, rating, stockStatus, customization } = item;
+
+const MylistCard = ({ item ,craft }) => { 
+
+  // const [art, setArt] = useState(craft)
+  // console.log(art)
+   
+
+  const {_id, name, photo, price, rating, stockStatus, customization } =item;
+  // console.log(item)
 
   const hundleDelete = (id) => {
     Swal.fire({
@@ -28,9 +36,11 @@ const MylistCard = ({ item }) => {
                 text: "Your craft has been deleted.",
                 icon: "success"
                 });
+                // const remaining = art.filter(craft => craft._id !== _id)
+                // setArt(remaining)
+                // console.log(art) 
             }
-        })
-        console.log('delete confirmed')
+        }) 
         }
       });
   }

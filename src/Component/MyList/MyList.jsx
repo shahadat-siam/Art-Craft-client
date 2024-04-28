@@ -6,7 +6,10 @@ import { FaAngleDown } from "react-icons/fa";
 const MyList = () => {
   const { user } = UseAuth();
   const [item, setItem] = useState();
-  console.log(item);
+  const craft = item
+  // console.log(craft)
+   
+   
  
 
   useEffect(() => {
@@ -40,7 +43,7 @@ const MyList = () => {
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3 p-3 lg:px-8">
         {item?.map((itm) => (
-          <MylistCard key={itm._id} item={itm}></MylistCard>
+          <MylistCard key={itm._id} item={itm} craft={craft} ></MylistCard>
         ))}
       </div>
     </div>
