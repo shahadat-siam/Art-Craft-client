@@ -18,11 +18,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
+    // http://localhost:5000
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/addcraft"),
+        loader: () => fetch(" http://localhost:5000/addcraft"),
       },
       {
         path: "/login",
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
       {
         path: "/allart",
         element: <AllArtCraft />,
-        loader: () => fetch("http://localhost:5000/addcraft"),
+        loader: () => fetch(" http://localhost:5000/addcraft"),
       },
       {
         path: "/addcrafti",
@@ -61,7 +62,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/addcraft/${params.id}`),
+          fetch(` http://localhost:5000/addcraft/${params.id}`),
       },
       {
         path: "/details/:id",
@@ -70,12 +71,13 @@ const router = createBrowserRouter([
             <ViewDetails />
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`http://localhost:5000/addcraft/${params.id}`)
+        loader: ({ params }) =>
+          fetch(` http://localhost:5000/addcraft/${params.id}`),
       },
       // {
       //     path:'/artcetegory',
       //     element: <CraftItem/>,
-      //     loader: () => fetch('http://localhost:5000/default')
+      //     loader: () => fetch(' http://localhost:5000/default')
       // }
     ],
   },

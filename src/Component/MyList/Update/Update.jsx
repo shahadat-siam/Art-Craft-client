@@ -50,7 +50,7 @@ const Update = () => {
     // console.log(updateCraft);
 
     //----- send data to the server
-    fetch(`http://localhost:5000/addcraft/${_id}`, {
+    fetch(` http://localhost:5000/addcraft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

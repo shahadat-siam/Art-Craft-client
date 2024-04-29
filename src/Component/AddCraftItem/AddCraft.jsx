@@ -36,7 +36,7 @@ const AddCraft = () => {
     console.log(newCraft);
 
     //----- send data to the server
-    fetch("http://localhost:5000/addcraft", {
+    fetch(" http://localhost:5000/addcraft", {
       method: "POST",
       headers: {
         "content-type": "application/json",

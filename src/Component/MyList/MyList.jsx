@@ -10,7 +10,7 @@ const MyList = () => {
   // console.log(craft)
 
   useEffect(() => {
-    fetch(`http://localhost:5000/mylist/${user?.email}`)
+    fetch(` http://localhost:5000/mylist/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
