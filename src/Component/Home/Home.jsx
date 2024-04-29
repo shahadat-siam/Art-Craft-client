@@ -1,10 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner/Banner";
 import CraftItem from "./Craftsection/CraftItem";
+import ArtCraftCategories from "./ArtCraftCategories";
 
 const Home = () => {
-  const item = useLoaderData();
-
+  const item = useLoaderData().slice(0,6);  
   return (
     <div>
       <Banner />
@@ -17,7 +17,9 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <ArtCraftCategories/>
     </div>
+    
   );
 };
 

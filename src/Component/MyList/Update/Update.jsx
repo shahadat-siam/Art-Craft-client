@@ -1,10 +1,21 @@
-import { useLoaderData } from "react-router-dom";  
+import { useLoaderData } from "react-router-dom";
 import UseAuth from "../../Hook/UseAuth";
 import swal from "sweetalert";
 
 const Update = () => {
   const item = useLoaderData();
-  const {_id, name,subcategory, description, time, photo, price, rating, stockStatus, customization } = item;
+  const {
+    _id,
+    name,
+    subcategory,
+    description,
+    time,
+    photo,
+    price,
+    rating,
+    stockStatus,
+    customization,
+  } = item;
   const { user } = UseAuth() || {};
 
   const hundleUpdateCaft = (e) => {
@@ -55,14 +66,17 @@ const Update = () => {
             text: "Successfully updated your data",
             icon: "success",
             dangerMode: true,
-          })
+          });
         }
       });
   };
   return (
     <div className="lg:px-20 px-5">
       <h2 className="text-4xl font-bold text-center my-5">Update</h2>
-      <form onSubmit={hundleUpdateCaft} className="border border-gray-200 p-3 lg:p-5">
+      <form
+        onSubmit={hundleUpdateCaft}
+        className="border border-gray-200 p-3 lg:p-5"
+      >
         {/* ----form row--- */}
         <div className="md:flex gap-4  w-full">
           <div className="md:w-1/2 mt-2 flex flex-col items-start gap-2">
@@ -99,7 +113,8 @@ const Update = () => {
             </label>
             <input
               name="price"
-              type="text" defaultValue={price}
+              type="text"
+              defaultValue={price}
               className="input w-full input-bordered join-item"
               placeholder="Price"
             />
@@ -110,7 +125,8 @@ const Update = () => {
             </label>
             <input
               name="rating"
-              type="text" defaultValue={rating}
+              type="text"
+              defaultValue={rating}
               className="input w-full input-bordered join-item"
               placeholder=" your rating "
             />
@@ -125,7 +141,8 @@ const Update = () => {
             </label>
             <input
               name="customization"
-              type="text" defaultValue={customization}
+              type="text"
+              defaultValue={customization}
               className="input w-full input-bordered join-item"
               placeholder="example- yes, no"
             />
@@ -136,7 +153,8 @@ const Update = () => {
             </label>
             <input
               name="description"
-              type="text" defaultValue={description}
+              type="text"
+              defaultValue={description}
               className="input w-full input-bordered join-item"
               placeholder="short description"
             />
@@ -151,7 +169,8 @@ const Update = () => {
             </label>
             <input
               name="time"
-              type="text" defaultValue={time}
+              type="text"
+              defaultValue={time}
               className="input w-full input-bordered join-item"
               placeholder="processing_time"
             />
@@ -162,7 +181,8 @@ const Update = () => {
             </label>
             <input
               name="stockStatus"
-              type="text" defaultValue={stockStatus}
+              type="text"
+              defaultValue={stockStatus}
               className="input w-full input-bordered join-item"
               placeholder="example- In stock, Made to Order"
             />
@@ -177,7 +197,8 @@ const Update = () => {
             </label>
             <input
               name="photo"
-              type="url" defaultValue={photo}
+              type="url"
+              defaultValue={photo}
               className="input w-full input-bordered join-item"
               placeholder="photo"
             />

@@ -6,11 +6,8 @@ import { FaAngleDown } from "react-icons/fa";
 const MyList = () => {
   const { user } = UseAuth();
   const [item, setItem] = useState();
-  const craft = item
+  const craft = item;
   // console.log(craft)
-   
-   
- 
 
   useEffect(() => {
     fetch(`http://localhost:5000/mylist/${user?.email}`)
@@ -29,13 +26,15 @@ const MyList = () => {
 
       <div>
         <details className="dropdown">
-          <summary className="m-1 btn text-purple-500">Customization <FaAngleDown /></summary>
+          <summary className="m-1 btn text-purple-500">
+            Customization <FaAngleDown />
+          </summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-36 border border[#007F73]   ">
             <li className="flex items-center">
               <a className="text-purple-500 text-center">Yes</a>
             </li>
             <li className="flex items-center">
-              <a  className="text-purple-500 text-center">No</a>
+              <a className="text-purple-500 text-center">No</a>
             </li>
           </ul>
         </details>
@@ -43,7 +42,7 @@ const MyList = () => {
 
       <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3 p-3 lg:px-8">
         {item?.map((itm) => (
-          <MylistCard key={itm._id} item={itm} craft={craft} ></MylistCard>
+          <MylistCard key={itm._id} item={itm} craft={craft}></MylistCard>
         ))}
       </div>
     </div>

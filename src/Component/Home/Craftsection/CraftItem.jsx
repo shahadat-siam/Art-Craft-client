@@ -29,10 +29,10 @@ const CraftItem = ({ item }) => {
             {/* <span className="flex px-3 py-[6px] rounded-sm font-semibold text-center text-[#ffa500] bg-[#ffa60017] ">customization: {customization}</span> */}
           </div>
           <div className="card-actions justify-center gap-4 mt-5">
-            <Link to="/details">
+            <Link to={`/details/${_id}`}>
               <button className="px-5 py-2 rounded border border-[#007F73] font-bold text-[#007F73] hover:bg-[#007f7242]">
                 View Details
-              </button>
+              </button> 
             </Link>
           </div>
         </div>
