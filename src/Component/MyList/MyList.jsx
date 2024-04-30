@@ -10,7 +10,7 @@ const MyList = () => {
   // console.log(craft)
 
   useEffect(() => {
-    fetch(` http://localhost:5000/mylist/${user?.email}`)
+    fetch(`https://y-three-wine.vercel.app/mylist/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
@@ -20,7 +20,7 @@ const MyList = () => {
 
   return (
     <div>
-      <h2 className="text-center text-4xl font-bold my-5">
+      <h2 className="text-center text-4xl font-bold my-5 text-[#554e9f]">
         My craft item list
       </h2>
 

@@ -36,7 +36,7 @@ const AddCraft = () => {
     console.log(newCraft);
 
     //----- send data to the server
-    fetch(" http://localhost:5000/addcraft", {
+    fetch("https://y-three-wine.vercel.app/addcraft", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -60,7 +60,7 @@ const AddCraft = () => {
 
   return (
     <div className="lg:px-20 px-5">
-      <h2 className="text-4xl font-bold text-center my-5">Add Craft Item </h2>
+      <h2 className="text-4xl font-bold text-center text-[#554e9f] my-5">Add Craft Item </h2>
       <form
         onSubmit={hundleAddCaft}
         className="border border-gray-200 p-3 lg:p-5"

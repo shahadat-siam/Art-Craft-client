@@ -50,7 +50,7 @@ const Update = () => {
     // console.log(updateCraft);
 
     //----- send data to the server
-    fetch(` http://localhost:5000/addcraft/${_id}`, {
+    fetch(`https://y-three-wine.vercel.app/addcraft/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -72,7 +72,7 @@ const Update = () => {
   };
   return (
     <div className="lg:px-20 px-5">
-      <h2 className="text-4xl font-bold text-center my-5">Update</h2>
+      <h2 className="text-4xl text-[#554e9f] font-bold text-center my-5">Update</h2>
       <form
         onSubmit={hundleUpdateCaft}
         className="border border-gray-200 p-3 lg:p-5"

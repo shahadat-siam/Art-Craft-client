@@ -9,8 +9,7 @@ import MyList from "../MyList/MyList";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Update from "../MyList/Update/Update";
-import ViewDetails from "../AllCraftArt/ViewDetails";
-import CraftItem from "../Home/Craftsection/CraftItem";
+import ViewDetails from "../AllCraftArt/ViewDetails"; 
 import ArtCraftCategories from "../Home/ArtCraftCategories";
 
 const router = createBrowserRouter([
@@ -18,12 +17,12 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-    // http://localhost:5000
+    //https://y-three-wine.vercel.app
     children: [
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch(" http://localhost:5000/addcraft"),
+        loader: () => fetch("https://y-three-wine.vercel.app/addcraft"),
       },
       {
         path: "/login",
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: "/allart",
         element: <AllArtCraft />,
-        loader: () => fetch(" http://localhost:5000/addcraft"),
+        loader: () => fetch("https://y-three-wine.vercel.app/addcraft"),
       },
       {
         path: "/addcrafti",
@@ -62,7 +61,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/addcraft/${params.id}`),
+          fetch(`https://y-three-wine.vercel.app/addcraft/${params.id}`),
       },
       {
         path: "/details/:id",
@@ -72,12 +71,12 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(` http://localhost:5000/addcraft/${params.id}`),
+          fetch(`https://y-three-wine.vercel.app/addcraft/${params.id}`),
       },
       // {
       //     path:'/artcetegory',
-      //     element: <CraftItem/>,
-      //     loader: () => fetch(' http://localhost:5000/default')
+      //     element: <ArtCraftCategories/>,
+      //     loader: () => fetch('https://y-three-wine.vercel.app/default')
       // }
     ],
   },
